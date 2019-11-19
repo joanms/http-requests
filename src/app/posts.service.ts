@@ -38,4 +38,8 @@ export class PostsService {
                 })
             );
     }
+
+    deletePosts() {
+        return this.http.delete('https://udemy-angular-http-modul-e6d0b.firebaseio.com/posts.json');
+    }
 }
