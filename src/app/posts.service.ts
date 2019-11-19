@@ -37,7 +37,8 @@ export class PostsService {
                 'https://udemy-angular-http-modul-e6d0b.firebaseio.com/posts.json',
                 {
                     headers: new HttpHeaders({'Custom-Header': 'Hello'}),
-                    params: searchParams
+                    params: searchParams,
+                    responseType: 'json'
                 }
             )
             .pipe(
@@ -61,7 +62,8 @@ export class PostsService {
         return this.http.delete(
             'https://udemy-angular-http-modul-e6d0b.firebaseio.com/posts.json',
             {
-                observe: 'events'
+                observe: 'events',
+                responseType: 'text'
             }
         ).pipe(tap(event => {
             console.log(event);
