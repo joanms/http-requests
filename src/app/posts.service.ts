@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map, catchError } from 'rxjs/Operators';
 import { Subject, throwError } from 'rxjs';
 
@@ -28,7 +28,10 @@ export class PostsService {
     fetchPosts() {
         return this.http
             .get<{ [key: string]: Post }>(
-                'https://udemy-angular-http-modul-e6d0b.firebaseio.com/posts.json'
+                'https://udemy-angular-http-modul-e6d0b.firebaseio.com/posts.json',
+                {
+                    headers: HttpHeaders
+                }
                 )
             .pipe(
                 map(responseData => {
